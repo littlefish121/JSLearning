@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo"></p>
+<script>
+    const girl = {name:'lirui',age:'21',character:'安静'}
+    document.getElementById('demo').innerHTML= girl.name+'已经'+girl.age+'岁了，'+'她是一个'+girl.character+'的女孩'
+    var boy = new Object()
+    boy.name='yuhailin'
+    boy.age='22'
+    boy.character='多元'
+    //JavaScript 对象是易变的
+    const x = boy
+    x.age='23'
+    // boy里的age也是23，它们是同一个对象
+    // 新增属性
+    boy.lover = 'lirui'
+    console.log(boy)
+    // 删除属性
+    delete boy.lover
+    console.log(boy)
+    // delete 关键词不会删除被继承的属性，但是如果您删除了某个原型属性，则将影响到所有从原型继承的对象。
+
+
+    // 对象构造器
+    function Person(name,age,school){
+        this.name=name
+        this.age=age
+        this.school=school
+    }
+    const myName = new Person('yhl',22,'商高')
+    const herName = new Person('lr',21,'商高')
+    console.log(myName.name+'&&'+herName.name)
+    myName.ros=function() {
+        return this.school+this.name
+    }
+    const saa =myName.ros()
+        console.log(saa)
+    // 您不能将新属性添加到构造函数
+    // Person.nationality = "English";
+    // JavaScript prototype 属性允许您为对象构造器添加新属性：
+    // Person.prototype.nationality = "English";
+
+    // // 添加或更改对象属性
+    // Object.defineProperty(object, property, descriptor)
+    //
+    // // 添加或更改多个对象属性
+    // Object.defineProperties(object, descriptors)
+    //
+    // // 访问属性
+    // Object.getOwnPropertyDescriptor(object, property)
+    //
+    // // 以数组返回所有属性
+    // Object.getOwnPropertyNames(object)
+    //
+    // // 以数组返回所有可枚举的属性
+    // Object.keys(object)
+    //
+    // // 访问原型
+    // Object.getPrototypeOf(object)
+    //
+    // // 阻止向对象添加属性
+    // Object.preventExtensions(object)
+    //
+    // // 如果可将属性添加到对象，则返回 true
+    // Object.isExtensible(object)
+    //
+    // // 防止更改对象属性（而不是值）
+    // Object.seal(object)
+    //
+    // // 如果对象被密封，则返回 true
+    // Object.isSealed(object)
+    //
+    // // 防止对对象进行任何更改
+    // Object.freeze(object)
+    //
+    // // 如果对象被冻结，则返回 true
+    // Object.isFrozen(object)
+
+    var person = {
+        firstName: "Bill",
+        lastName : "Gates",
+        language : "EN"
+    };
+
+    // 更改属性
+    Object.defineProperty(person, "language", {value : "ZH"});
+    console.log(person.language)
+</script>
+</body>
+</html>
