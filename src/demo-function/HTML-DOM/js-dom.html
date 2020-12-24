@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--dom事件-->
+<div onmouseover="mOver(this)" onmouseout="mOut(this)"
+     style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+    请把鼠标移上来</div>
+
+<script>
+    function mOver(obj) {
+        obj.innerHTML = "谢谢您"
+    }
+
+    function mOut(obj) {
+        obj.innerHTML = "请把鼠标移上来"
+    }
+</script>
+</body>
+</html>
+
+
+<!--string的blank类-->
+<!--object的空安全-->

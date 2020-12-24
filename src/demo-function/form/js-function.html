@@ -7,7 +7,33 @@
 <body>
 
 <script>
+    // 箭头函数
+    const x = (x, y) => x * y;
+    console.log(x(5, 5)); // 25
 
+    // 自调用函数
+    console.log((function () {
+        // document.getElementById("demo").innerHTML = "Hello! I called myself";
+        const x = 2 * 4
+        return x
+    })()) // 8
+
+    // 带参数的 call() 方法
+    var person = {
+        fullName: function (city, country) {
+            return this.firstName + ' ' + this.lastName +'  '+ city +','+ country
+        }
+    }
+    var person1 = {
+        firstName:"Bill",
+        lastName: "Gates"
+    }
+    var person2 = {
+        firstName:"Steve",
+        lastName: "Jobs"
+    }
+    console.log(person.fullName.call(person1,'shanghai','China'))
+    // aplly()方法与call方法相似，不同之处是：call() 方法分别接受参数。apply() 方法接受数组形式的参数。
 </script>
 </body>
 </html>
