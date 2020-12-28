@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        select {
+            width: 150px;
+            height: 20px;
+        }
+
+        .resume-from {
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+<!--姓名、性别、民族、学校、手机号、邮箱、兴趣、个人简介、头像-->
+<div class="resume-from">
+    <form name="resumeForm" action="" style="width: 30%; margin: auto">
+        头像：<img src="../../../src/assets/image/1.jpg" style="width: 44px;height: 92px" alt="">
+        <br/>
+        姓名：<input type="text" required="required"/>
+        <br/>
+        性别：<select id="gender" type="text" required="required"></select>
+        <br/>
+        民族：<select name="national" id="national" type="text" required="required"></select>
+        <br/>
+        学校：<select name="school" id="school" type="text" required="required"></select>
+        <br/>
+        手机号：<input type="tel"/>
+        <br/>
+        邮箱：<input type="email"/>
+        <br/>
+        兴趣：<input type="text"/>
+        <br/>
+        个人简介：<input type="text" maxlength="100"/>
+    </form>
+</div>
+<a onclick="addData()">添加数据</a>
+<script>
+    let personNational = []
+    let personGender = ['男', '女']
+    let personSchool = ['上海第二工业大学','复旦','同济','上海交通大学','华东师范大学']
+    let personIndo = {
+        personGender,
+        personSchool
+    }
+    selectOptions(personGender, 'gender') // 性别
+    selectOptions(personIndo.personSchool,'school') // 学校
+
+
+    function myNational() {
+        // document.resumeForm.national.options = []
+        for (let i = 0; i < personNational.length; i++) {
+            document.resumeForm.national.options[i] = new Option(personNational[i], i)
+        }
+    }
+
+    function addData() {
+        personNational = []
+        personNational.push('河南', '湖南', '北京', '上海', '江苏')
+        this.myNational()
+    }
+
+    // select通用赋值
+    function selectOptions(selectData, selectId) {
+        for (let i = 0; i < selectData.length; i++) {
+            document.resumeForm.querySelector(`#${selectId}`).options[i] = new Option(selectData[i], i)
+        }
+    }
+</script>
+</body>
+</html>
